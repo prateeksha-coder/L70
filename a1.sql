@@ -15,8 +15,8 @@ INSERT INTO DEPARTMENT (EMPLOYEE_ID, NAME, DEPARTMENT_ID, MANAGER_ID, SALARY) VA
   ('103', 'BRUCE LEE', '60', '103', 4800),
   ('104', 'DIANA WILLS', '60', '103', 25000),
   ('105', 'VALLI PATOR', '50', '100', 4200),
-  ('1973', 'LUV HAMI', '60', '102', 5000),
-  ('106', 'DAVID AUSTIN', '90', '100', 6000);
+  ('106', 'LUV HAMI', '60', '102', 5000),
+  ('107', 'DAVID AUSTIN', '90', '100', 6000);
 
 -- Query to count the number of employees in each department
 SELECT department_id AS "Department Code", 
@@ -48,3 +48,5 @@ SELECT department_id, COUNT(*) AS "No. of Employees"
 FROM DEPARTMENT 
 GROUP BY department_id 
 HAVING COUNT(*) > 2;
+
+DROP TABLE DEPARTMENT;

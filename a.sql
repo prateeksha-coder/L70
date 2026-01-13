@@ -20,7 +20,10 @@ INSERT INTO NOBEL_WIN (YEAR, SUBJECT, WINNER, COUNTRY, CATEGORY) VALUES
   (1981, 'PHYSIOLOGY', 'HANNAH', 'HUNGARY', 'SCIENTIST'),
   (1975, 'PHYSICS', 'PETER', 'CHILE', 'SCIENTIST');
 
--- Select all records from the NOBEL_WIN table where the subject does not start with 'P'
+-- Select all records from the NOBEL_WIN table where the subject does not start with 'P' and arrange by name
 SELECT * 
 FROM NOBEL_WIN 
-WHERE SUBJECT NOT LIKE 'P%';
+WHERE SUBJECT NOT LIKE 'P%'
+ORDER BY WINNER;
+
+ DROP TABLE NOBEL_WIN;
