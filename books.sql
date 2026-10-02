@@ -1,9 +1,3 @@
--- ============================================================
--- SQL Sorting & Filtering
--- Activity: Book Club Explorer
--- ============================================================
-
--- ---- PART 1: Build and Explore the Table ----
 
 CREATE TABLE IF NOT EXISTS book (
     book_id  INTEGER PRIMARY KEY,
@@ -25,44 +19,37 @@ INSERT INTO book VALUES (8, 'Magic Academy',  'Fantasy',   9.0, 398, 2020);
 
 SELECT * FROM book;
 
--- ---- PART 2: ORDER BY ----
 
--- Sort all books lowest rating first (ASC is the default)
 SELECT title, rating FROM book ORDER BY rating ASC;
 
--- Sort all books highest rating first
+
 SELECT title, rating FROM book ORDER BY rating DESC;
 
--- Sort by genre A–Z, then highest rating first within each genre
+
 SELECT title, genre, rating FROM book ORDER BY genre ASC, rating DESC;
 
--- ---- PART 3: LIMIT ----
 
--- Top 3 highest-rated books
 SELECT title, rating FROM book ORDER BY rating DESC LIMIT 3;
 
--- 5 oldest books by publication year
+
 SELECT title, pub_year FROM book ORDER BY pub_year ASC LIMIT 5;
 
--- ---- PART 4: GROUP BY ----
 
--- How many books are in each genre?
+
+
 SELECT genre, COUNT(*) AS book_count FROM book GROUP BY genre;
 
--- Total pages and average rating per genre
 SELECT genre, SUM(pages) AS total_pages, AVG(rating) AS avg_rating
 FROM book
 GROUP BY genre;
 
--- ---- PART 5: HAVING ----
 
--- Genres that have more than 2 books
 SELECT genre, COUNT(*) AS book_count
 FROM book
 GROUP BY genre
 HAVING COUNT(*) > 2;
 
--- Genres where the average rating is at least 8.5
+
 SELECT genre, AVG(rating) AS avg_rating
 FROM book
 GROUP BY genre
